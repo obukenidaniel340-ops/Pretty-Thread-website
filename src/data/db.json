@@ -1,0 +1,173 @@
+{
+  "users": [
+    {
+      "id": "usr_admin",
+      "email": "admin@prettythreads.com",
+      "name": "Pretty Admin",
+      "passwordHash": "$2a$10$U3jB0XG1x7.nL54r.bH.eu6qT0L9pUXb64G3U2S.e3R/U2G/B2G2G",
+      "role": "ADMIN"
+    },
+    {
+      "id": "usr_customer",
+      "email": "customer@prettythreads.com",
+      "name": "Chioma Bello",
+      "passwordHash": "$2a$10$W2jB0XG1x7.nL54r.bH.eu6qT0L9pUXb64G3U2S.e3R/U2G/B2G2G",
+      "role": "CUSTOMER"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod_1",
+      "slug": "modern-isi-agu-bomber-jacket",
+      "name": "Modern Isi Agu Bomber Jacket",
+      "description": "A striking fusion of Igbo cultural heritage and modern streetwear. Made with high-quality velvet Isi Agu fabric, custom hardware, and ribbed trim. Perfect for adding a confident, elevated casual touch to any outfit.",
+      "price": 189.0,
+      "category": "Outerwear",
+      "images": "Igbo attire - Isi agu 🇳🇬.jpg"
+    },
+    {
+      "id": "prod_2",
+      "slug": "royal-aso-ebi-dinner-gown",
+      "name": "Royal Aso Ebi Dinner Gown",
+      "description": "Make an unforgettable statement in this luxury Aso Ebi gown. Featuring asymmetric details, hand-beaded lace motifs, and a structured silhouette that celebrates premium craftsmanship and timeless beauty.",
+      "price": 349.0,
+      "category": "Dresses",
+      "images": "Aso Ebi.jpg"
+    },
+    {
+      "id": "prod_3",
+      "slug": "sleek-terracotta-kaftan-dress",
+      "name": "Sleek Terracotta Kaftan Dress",
+      "description": "An effortlessly stylish Kaftan dress, styled by Loveth King. Designed with clean architectural lines, a flattering drape, and a modern terracotta shade that perfectly reflects the warmth and confidence of the Pretty Threads aesthetic.",
+      "price": 145.0,
+      "category": "Casuals",
+      "images": "Loveth king styling - Nigeria 🇳🇬.jpg"
+    },
+    {
+      "id": "prod_4",
+      "slug": "premium-tailored-wrap-dress",
+      "name": "Premium Tailored Wrap Dress",
+      "description": "A signature piece from the Prudential Atelier. Meticulously tailored to accentuate and flatter, featuring adjustable wrap closures, lightweight breathable linen blend, and premium finish.",
+      "price": 175.0,
+      "category": "Dresses",
+      "images": "Prudential Atelier - Nigeria 🇳🇬.jpg"
+    },
+    {
+      "id": "prod_5",
+      "slug": "contemporary-streetwear-kimono",
+      "name": "Contemporary Streetwear Kimono",
+      "description": "A versatile layering statement featuring structured pockets, wide sleeves, and premium cotton canvas. Equal parts traditional drape and modern industrial elements.",
+      "price": 120.0,
+      "category": "Outerwear",
+      "images": "Nigerian fashion brands_ Sign me tf up!__I looove….jpg"
+    },
+    {
+      "id": "prod_6",
+      "slug": "embellished-aso-oke-set",
+      "name": "Embellished Aso Oke Set",
+      "description": "A luxury two-piece set crafted from traditional hand-woven Aso Oke. Styled with modern structural crop top and a fitted wrap skirt with intricate geometric motifs.",
+      "price": 295.0,
+      "category": "Co-ords",
+      "images": "Nigerian Traditional Attire - Aso Oke.jpg"
+    },
+    {
+      "id": "prod_7",
+      "slug": "luxe-boubou-agbada-gown",
+      "name": "Luxe Boubou Agbada Gown",
+      "description": "An elegant kaftan combining the majestic drape of an Agbada with the softness of silk. Features subtle gold embroidery around the neckline, perfect for high-society outings and relaxed luxury.",
+      "price": 210.0,
+      "category": "Dresses",
+      "images": "111604897012345916.jpg"
+    },
+    {
+      "id": "prod_8",
+      "slug": "classic-aso-oke-trench-coat",
+      "name": "Classic Aso Oke Trench Coat",
+      "description": "A masterpiece reinterpreting traditional Aso Oke fabrics into a modern double-breasted trench silhouette. Featuring custom epaulets, belted waist, and deep utility pockets.",
+      "price": 260.0,
+      "category": "Outerwear",
+      "images": "26880929021915841.jpg"
+    },
+    {
+      "id": "prod_9",
+      "slug": "eroyn-asymmetric-kaftan",
+      "name": "Eroyn Asymmetric Kaftan",
+      "description": "An architectural garment highlighting experimental draping by Nyore Eroyn. Flowing crepe fabric with asymmetric hemlines, side slit, and modern utility detailing.",
+      "price": 165.0,
+      "category": "Casuals",
+      "images": "985231164423618.jpg"
+    },
+    {
+      "id": "prod_10",
+      "slug": "eccentric-drape-jumpsuit",
+      "name": "Eccentric Drape Jumpsuit",
+      "description": "Bold, artistic, and completely unique. A wrap jumpsuit featuring asymmetric overlapping panels, wide legs, and side-tie sash, crafted from textured premium cotton.",
+      "price": 195.0,
+      "category": "Casuals",
+      "images": "Eccentric Woman by Nyore Eroyn - Nigeria.jpg"
+    },
+    {
+      "id": "prod_11",
+      "slug": "ageless-boubou-kaftan",
+      "name": "Ageless Boubou Kaftan",
+      "description": "Comfort meets high style. A flowing kaftan dress in high-contrast print, handmade with premium breathable fabric, designed for warm summer breezes or elevated lounging.",
+      "price": 135.0,
+      "category": "Casuals",
+      "images": "Women's Nigerian Traditional Asooke Agbada Boubou Kaftan - Etsy Canada.jpg"
+    }
+  ],
+  "variants": [
+    { "id": "var_1_s", "productId": "prod_1", "size": "S", "color": "Crimson Red", "sku": "MODERNIS-RED-S", "stock": 15 },
+    { "id": "var_1_m", "productId": "prod_1", "size": "M", "color": "Crimson Red", "sku": "MODERNIS-RED-M", "stock": 22 },
+    { "id": "var_1_l", "productId": "prod_1", "size": "L", "color": "Crimson Red", "sku": "MODERNIS-RED-L", "stock": 18 },
+    { "id": "var_1_xl", "productId": "prod_1", "size": "XL", "color": "Crimson Red", "sku": "MODERNIS-RED-XL", "stock": 10 },
+    
+    { "id": "var_2_s", "productId": "prod_2", "size": "S", "color": "Royal Blue", "sku": "ROYALASO-BLU-S", "stock": 8 },
+    { "id": "var_2_m", "productId": "prod_2", "size": "M", "color": "Royal Blue", "sku": "ROYALASO-BLU-M", "stock": 12 },
+    { "id": "var_2_l", "productId": "prod_2", "size": "L", "color": "Royal Blue", "sku": "ROYALASO-BLU-L", "stock": 6 },
+
+    { "id": "var_3_s", "productId": "prod_3", "size": "S", "color": "Terracotta", "sku": "SLEEKTER-TER-S", "stock": 25 },
+    { "id": "var_3_m", "productId": "prod_3", "size": "M", "color": "Terracotta", "sku": "SLEEKTER-TER-M", "stock": 30 },
+    { "id": "var_3_l", "productId": "prod_3", "size": "L", "color": "Terracotta", "sku": "SLEEKTER-TER-L", "stock": 20 },
+
+    { "id": "var_4_s", "productId": "prod_4", "size": "S", "color": "Cream", "sku": "PREMIUMT-CRE-S", "stock": 12 },
+    { "id": "var_4_m", "productId": "prod_4", "size": "M", "color": "Cream", "sku": "PREMIUMT-CRE-M", "stock": 18 },
+    { "id": "var_4_l", "productId": "prod_4", "size": "L", "color": "Cream", "sku": "PREMIUMT-CRE-L", "stock": 15 },
+
+    { "id": "var_5_s", "productId": "prod_5", "size": "S", "color": "Sage Green", "sku": "CONTEMPO-SAG-S", "stock": 15 },
+    { "id": "var_5_m", "productId": "prod_5", "size": "M", "color": "Sage Green", "sku": "CONTEMPO-SAG-M", "stock": 20 },
+    { "id": "var_5_l", "productId": "prod_5", "size": "L", "color": "Sage Green", "sku": "CONTEMPO-SAG-L", "stock": 15 },
+    { "id": "var_5_xl", "productId": "prod_5", "size": "XL", "color": "Sage Green", "sku": "CONTEMPO-SAG-XL", "stock": 8 },
+
+    { "id": "var_6_s", "productId": "prod_6", "size": "S", "color": "Gold/Charcoal", "sku": "EMBELLIS-GOL-S", "stock": 5 },
+    { "id": "var_6_m", "productId": "prod_6", "size": "M", "color": "Gold/Charcoal", "sku": "EMBELLIS-GOL-M", "stock": 8 },
+    { "id": "var_6_l", "productId": "prod_6", "size": "L", "color": "Gold/Charcoal", "sku": "EMBELLIS-GOL-L", "stock": 4 },
+
+    { "id": "var_7_s", "productId": "prod_7", "size": "S", "color": "Dusty Rose", "sku": "LUXEBOUB-ROS-S", "stock": 10 },
+    { "id": "var_7_m", "productId": "prod_7", "size": "M", "color": "Dusty Rose", "sku": "LUXEBOUB-ROS-M", "stock": 15 },
+    { "id": "var_7_l", "productId": "prod_7", "size": "L", "color": "Dusty Rose", "sku": "LUXEBOUB-ROS-L", "stock": 10 },
+
+    { "id": "var_8_s", "productId": "prod_8", "size": "S", "color": "Bronze", "sku": "CLASSICA-BRO-S", "stock": 6 },
+    { "id": "var_8_m", "productId": "prod_8", "size": "M", "color": "Bronze", "sku": "CLASSICA-BRO-M", "stock": 10 },
+    { "id": "var_8_l", "productId": "prod_8", "size": "L", "color": "Bronze", "sku": "CLASSICA-BRO-L", "stock": 8 },
+
+    { "id": "var_9_s", "productId": "prod_9", "size": "S", "color": "Charcoal", "sku": "EROYNASY-CHA-S", "stock": 14 },
+    { "id": "var_9_m", "productId": "prod_9", "size": "M", "color": "Charcoal", "sku": "EROYNASY-CHA-M", "stock": 20 },
+    { "id": "var_9_l", "productId": "prod_9", "size": "L", "color": "Charcoal", "sku": "EROYNASY-CHA-L", "stock": 12 },
+
+    { "id": "var_10_s", "productId": "prod_10", "size": "S", "color": "Mustard Gold", "sku": "ECCENTRI-MUS-S", "stock": 8 },
+    { "id": "var_10_m", "productId": "prod_10", "size": "M", "color": "Mustard Gold", "sku": "ECCENTRI-MUS-M", "stock": 12 },
+    { "id": "var_10_l", "productId": "prod_10", "size": "L", "color": "Mustard Gold", "sku": "ECCENTRI-MUS-L", "stock": 8 },
+
+    { "id": "var_11_s", "productId": "prod_11", "size": "S", "color": "Monochrome Print", "sku": "AGELESSB-MON-S", "stock": 18 },
+    { "id": "var_11_m", "productId": "prod_11", "size": "M", "color": "Monochrome Print", "sku": "AGELESSB-MON-M", "stock": 25 },
+    { "id": "var_11_l", "productId": "prod_11", "size": "L", "color": "Monochrome Print", "sku": "AGELESSB-MON-L", "stock": 20 }
+  ],
+  "reviews": [
+    { "id": "rev_1", "productId": "prod_1", "userId": "usr_customer", "userName": "Chioma Bello", "rating": 5, "text": "Absolutely incredible bomber jacket. The Isi Agu print is extremely rich and stands out, and the fit is tailored and comfortable. Got so many compliments in Lagos!", "createdAt": "2026-08-20T14:30:00.000Z" },
+    { "id": "rev_2", "productId": "prod_2", "userId": "usr_customer", "userName": "Chioma Bello", "rating": 5, "text": "Stunning quality, the fabric has an amazing weight and the tailoring is impeccable. Felt like royalty wearing this dinner gown.", "createdAt": "2026-08-22T10:15:00.000Z" },
+    { "id": "rev_3", "productId": "prod_3", "userId": "usr_customer", "userName": "Chioma Bello", "rating": 4, "text": "Beautiful dress. The Terracotta shade is gorgeous. The material is very soft and drapes beautifully. Deducted one star just because it runs slightly large.", "createdAt": "2026-08-24T08:00:00.000Z" }
+  ],
+  "orders": [],
+  "wishlists": []
+}
