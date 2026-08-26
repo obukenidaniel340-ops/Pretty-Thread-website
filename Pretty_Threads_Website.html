@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pretty Threads - Website Dashboard & Launchpad</title>
+  <!-- Modern font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #0a0512;
+      --card-bg: rgba(18, 10, 31, 0.7);
+      --border-color: rgba(236, 72, 153, 0.2);
+      --primary-neon: #ec4899; /* Hot Pink */
+      --secondary-neon: #a855f7; /* Purple */
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --glow-shadow: 0 0 25px rgba(236, 72, 153, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 10% 20%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+        radial-gradient(at 90% 80%, rgba(236, 72, 153, 0.15) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 850px;
+      width: 100%;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .logo-container {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .logo-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon));
+      filter: blur(20px);
+      opacity: 0.6;
+      z-index: -1;
+      border-radius: 50px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 30%, #f472b6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.05em;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      font-weight: 400;
+    }
+
+    .grid-links {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 640px) {
+      .grid-links {
+        grid-template-columns: 1fr 1fr;
+      }
+      .vercel-card {
+        grid-column: span 2;
+      }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(168, 85, 247, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(236, 72, 153, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(236, 72, 153, 0.1);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-title svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--primary-neon);
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+    }
+
+    .card:hover .btn-secondary {
+      background: var(--primary-neon);
+      border-color: var(--primary-neon);
+      box-shadow: var(--glow-shadow);
+      color: #fff;
+    }
+
+    .vercel-card {
+      background: linear-gradient(135deg, rgba(15, 10, 30, 0.8), rgba(30, 10, 45, 0.8));
+      border: 1.5px solid rgba(236, 72, 153, 0.3);
+      box-shadow: 0 8px 32px rgba(236, 72, 153, 0.05);
+    }
+
+    .vercel-card:hover {
+      border-color: var(--primary-neon);
+      box-shadow: 0 15px 35px rgba(236, 72, 153, 0.15), var(--glow-shadow);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon));
+      border: none;
+      color: white;
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 25px rgba(236, 72, 153, 0.5), var(--glow-shadow);
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.6rem;
+      background: rgba(236, 72, 153, 0.2);
+      color: #f472b6;
+      border: 1px solid rgba(236, 72, 153, 0.3);
+      border-radius: 9999px;
+      margin-left: 0.5rem;
+      font-weight: 700;
+    }
+
+    /* Steps Section */
+    .steps-section {
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 18px;
+      padding: 2rem;
+    }
+
+    .steps-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #fff;
+    }
+
+    .steps-list {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      background: rgba(236, 72, 153, 0.15);
+      border: 1px solid rgba(236, 72, 153, 0.4);
+      color: var(--primary-neon);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .step-content h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    .step-content p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    code {
+      background: rgba(0, 0, 0, 0.3);
+      color: #f472b6;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <div class="logo-glow"></div>
+        <h1>PRETTY THREADS</h1>
+      </div>
+      <p class="subtitle">E-Commerce Website Launchpad & Deployment Control</p>
+    </header>
+
+    <div class="grid-links">
+      <!-- Local Link -->
+      <a href="http://localhost:3000" target="_blank" class="card">
+        <div class="card-content">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            Local Server
+          </div>
+          <p class="card-desc">Open the web app locally on your machine. Ensure you run <code>npm run dev</code> in your terminal first.</p>
+        </div>
+        <div class="card-btn btn-secondary">
+          Launch Localhost:3000
+        </div>
+      </a>
+
+      <!-- GitHub Link -->
+      <a href="https://github.com/obukenidaniel340-ops/Pretty-Thread-website" target="_blank" class="card">
+        <div class="card-content">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            GitHub Repository
+          </div>
+          <p class="card-desc">View your code files on GitHub. This is where you push updates to make them available for production.</p>
+        </div>
+        <div class="card-btn btn-secondary">
+          Go to GitHub Repo
+        </div>
+      </a>
+
+      <!-- Vercel Deployment Link (Make Live) -->
+      <a href="https://vercel.com/new/import?s=https://github.com/obukenidaniel340-ops/Pretty-Thread-website" target="_blank" class="card vercel-card">
+        <div class="card-content">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 22 22 22"></polygon>
+            </svg>
+            Make It Live (Deploy to Vercel)
+            <span class="badge">Recommended</span>
+          </div>
+          <p class="card-desc">Instantly deploy this Next.js app online for free. This imports your repository directly into Vercel, links it up, and gives you a public, live URL.</p>
+        </div>
+        <div class="card-btn btn-primary">
+          Deploy to Vercel (Go Live Now)
+        </div>
+      </a>
+    </div>
+
+    <div class="steps-section">
+      <div class="steps-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--primary-neon);">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+        </svg>
+        How to Go Live & Keep Pushing Changes
+      </div>
+      <ul class="steps-list">
+        <li class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Push this Launcher to GitHub</h4>
+            <p>Save and commit this file to your git repository: <code>git add .</code> then <code>git commit -m "add web launcher"</code> and <code>git push origin main</code>.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Click the "Make It Live" Button Above</h4>
+            <p>It will take you to Vercel. Log in using your GitHub account and click **Import** next to the <code>Pretty-Thread-website</code> repository.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Deploy & Enjoy</h4>
+            <p>Vercel will build the Next.js site automatically and generate your live website URL (e.g. <code>pretty-thread-website.vercel.app</code>) in 1-2 minutes!</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <p>Pretty Threads &copy; 2026. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
